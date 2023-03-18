@@ -45,35 +45,19 @@ $(function(){
     let millisecsPerDay = 24*60*60*1000;
 
     for (let x = 0; x < topicCount; x++) {
-        let thisDate = new Date(startDate.getTime() + 7*x*millisecsPerDay);
+        let thisDate = new Date(startDate.getTime() + (Math.floor(x/2)*7 + x%2)*millisecsPerDay);
         let dayOfWeek = thisDate.getDay();
-        if (dayOfWeek == 0) { // 如果是週日
-            let topicColor = "";
-            if(topic[x] === "0325停課"){
-                topicColor = "cancelled";
-            }
-            $("#courseTable").append(
-                "<tr>"+
-                 `<td>${x+1}</td>`+
-                 `<td>${thisDate.toLocaleDateString(undefined, {month: 'numeric', day: 'numeric'})}</td>` +
-                 `<td class="${topicColor}">${topic[x]}</td>` +
-                "</tr>"
-            );
-        } else if (dayOfWeek == 6) { // 如果是週六
-            let topicColor = "";
-            if(topic[x] === "0325停課"){
-                topicColor = "cancelled";
-            }
-            $("#courseTable").append(
-                "<tr>"+
-                 `<td>${x+1}</td>`+
-                 `<td>${thisDate.toLocaleDateString(undefined, {month: 'numeric', day: 'numeric'})}</td>` +
-                 `<td class="${topicColor}">${topic[x]}</td>` +
-                "</tr>"
-            );
+        let topicColor = "";
+        if (topic[x] === "0325停課") {
+            topicColor = "cancelled";
         }
-        
-    }
-    
+        $("#courseTable").append(
+            "<tr>"+
+             `<td>${x+1}</td>`+
+             `<td>${thisDate.toLocaleDateString(undefined, {month: 'numeric', day: 'numeric'})}</td>` +
+             `<td class="${topicColor}">${topic[x]}</td>` +
+            "</tr>"
+        );
+    }   
 });
 

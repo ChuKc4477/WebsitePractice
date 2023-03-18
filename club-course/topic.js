@@ -9,10 +9,11 @@
 // 新明課表
 let topic = [
         "Intro to HTML/CSS/JS",
-        "Intro to JS/JS Lab1",
-        "JS Lab2",
-        "0312",
-        "0318",
+        "Intro to JS/JS + <br> random dinner selector",
+        "club course + Mind Quiz",
+        "YoutubePlayer",
+        "上傳雲端",
+        "0319",
         "0325停課"
     ];
 
