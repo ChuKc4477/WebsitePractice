@@ -47,7 +47,7 @@ $(function(){
     for (let x = 0; x < topicCount; x++) {
         let thisDate = new Date(startDate.getTime() + 7*x*millisecsPerDay);
         let dayOfWeek = thisDate.getDay();
-        if (dayOfWeek === 0) { // 如果是週日
+        if (dayOfWeek == 0) { // 如果是週日
             let topicColor = "";
             if(topic[x] === "0325停課"){
                 topicColor = "cancelled";
@@ -59,7 +59,7 @@ $(function(){
                  `<td class="${topicColor}">${topic[x]}</td>` +
                 "</tr>"
             );
-        } else if (dayOfWeek === 6) { // 如果是週六
+        } else if (dayOfWeek == 6) { // 如果是週六
             let topicColor = "";
             if(topic[x] === "0325停課"){
                 topicColor = "cancelled";
